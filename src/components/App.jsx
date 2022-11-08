@@ -51,19 +51,21 @@ export class App extends Component {
       <AppContainer>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.onSubmitForm} />
-        <div>
-          <h2>Contacts</h2>
-          <Filter
-            filter={this.state.filter}
-            onChangeValue={this.filterContacts}
-          />
 
-          <ContactList
-            contacts={this.state.contacts}
-            filter={this.state.filter}
-            onDeleteContact={this.deleteContact}
-          />
-        </div>
+        {this.state.contacts.length > 0 && (
+          <div>
+            <h2>Contacts</h2>
+            <Filter
+              filter={this.state.filter}
+              onChangeValue={this.filterContacts}
+            />
+            <ContactList
+              contacts={this.state.contacts}
+              filter={this.state.filter}
+              onDeleteContact={this.deleteContact}
+            />
+          </div>
+        )}
       </AppContainer>
     );
   }
